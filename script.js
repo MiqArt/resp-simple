@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".wrapper");
   const hamburger = document.querySelector(".hamburger");
   const headerLinks = document.querySelector(".header-links");
   const header = document.getElementById("header");
@@ -32,8 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     headerLinks.classList.toggle("open");
     if (headerLinks.classList.contains("open")) {
       document.body.style.overflow = "hidden";
+      wrapper.style.overflow = "hidden";
     }
-    else document.body.style.overflow = "unset";
+    else {
+      document.body.style.overflow = "unset";
+      wrapper.style.overflow = "unset";
+    }
   });
 
   const scrollFunction = () => {
@@ -46,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   console.log(document.referrer)
-  
+
 
   window.onscroll = () => scrollFunction();
 
