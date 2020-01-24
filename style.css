@@ -468,7 +468,7 @@ a {
   }
   
   .header-links.open::before {
-    height: calc(100vh - 69px);
+    height: calc(100% - 69px);
     transition: all 1s ease;
   }
   
