@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    console.log(window.location);
+    
+
     const link = document.createElement("a");
     link.classList.add("selectable");
     link.href = `#${lang}`;
