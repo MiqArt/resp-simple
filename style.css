@@ -96,7 +96,7 @@ footer {
 
 .social-media {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 18px;
 }
 
@@ -507,7 +507,7 @@ a {
   }
 
   .social-media {
-    width: calc(100vw - 60px);
+    max-width: 270px;
   }
 
   .social-media a i {

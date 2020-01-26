@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // const wrapper = document.querySelector(".wrapper");
   const hamburger = document.querySelector(".hamburger");
   const headerLinks = document.querySelector(".header-links");
   const header = document.getElementById("header");
@@ -11,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   languages.forEach((lang, index) => {
     const image = document.createElement("img");
     image.classList.add("flag-img");
-    image.src = `./icons/${lang}.svg`;
+
+    image.src = `../icons/${lang}.svg`;
     image.dataset.lang = lang;
 
     if (index === 0) {
@@ -19,28 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
       dropBtn.appendChild(image);
       return;
     }
-
-    console.log(window.location);
     
-
     const link = document.createElement("a");
     link.classList.add("selectable");
-    link.href = `#${lang}`;
+    link.href = `/${lang}/`;
 
     link.appendChild(image);
     dropFlags.appendChild(link);
-    link.addEventListener("click", () => selectLanguage(link));
+    // link.addEventListener("click", () => selectLanguage(link));
   });
 
   hamburger.addEventListener("click", () => {
     headerLinks.classList.toggle("open");
     if (headerLinks.classList.contains("open")) {
-      document.body.style.overflow = "hidden";
-      // wrapper.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"
     }
     else {
-      document.body.style.overflow = "unset";
-      // wrapper.style.overflow = "unset";
+      document.body.style.overflow = "unset"
     }
   });
 
@@ -53,9 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  console.log(document.referrer)
-
-
   window.onscroll = () => scrollFunction();
 
   function selectLanguage(lang) {
@@ -67,8 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
       newSelect.classList.add("selected");
 
       dropBtn.appendChild(newSelect);
-      lang.href = `#${selectedLang.getAttribute("data-lang")}`;
+      lang.href = `/${selectedLang.getAttribute("data-lang")}`;
       lang.appendChild(selectedLang);
     }, 0)
   }
+  let currentLang = document.querySelector(`a[href='${window.location.pathname}']`);
+  selectLanguage(currentLang);
 })
